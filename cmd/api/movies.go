@@ -17,6 +17,7 @@ func (app *application) createMovieHandler(w http.ResponseWriter, r *http.Reques
 		Genres  []string `json:"genres"`
 	}
 
+	//this only reads one json
 	err := app.readJSON(w, r, &input)
 
 	if err != nil {
