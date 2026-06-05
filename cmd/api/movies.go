@@ -11,10 +11,10 @@ import (
 func (app *application) createMovieHandler(w http.ResponseWriter, r *http.Request) {
 
 	var input struct {
-		Title   string   `json:"title"`
-		Year    int      `json:"year"`
-		Runtime int      `json:"runtime"`
-		Genres  []string `json:"genres"`
+		Title   string       `json:"title"`
+		Year    int          `json:"year"`
+		Runtime data.Runtime `json:"runtime"`
+		Genres  []string     `json:"genres"`
 	}
 
 	//this only reads one json
