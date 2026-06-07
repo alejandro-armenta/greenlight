@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"time"
 
+	"github.com/lib/pq"
 	"greenlight.alexarmenta.net/internal/validator"
 )
 
@@ -41,7 +42,53 @@ type MovieModel struct {
 }
 
 func (m MovieModel) Insert(movie Movie) (Movie, error) {
-	return Movie{}, nil
+
+	query := `
+	
+	insert into movies 
+	
+	(
+		title,
+		year,
+		runtime,
+		genres
+	)
+	
+	values 
+
+	(
+		$1,
+		$2,
+		$3,
+		$4
+	)
+	
+	returning 
+	
+	id, 
+	
+	created_at, 
+	
+	version
+	
+	`
+
+	args := []any{
+		movie.Title,
+		movie.Year,
+		movie.Runtime,
+		pq.Array(movie.Genres),
+	}
+
+	err := m.DB.
+		QueryRow(query, args...).
+		Scan(
+			&movie.ID,
+			&movie.CreatedAt,
+			&movie.Version,
+		)
+
+	return movie, err
 }
 
 func (m MovieModel) Get(id int) (Movie, error) {
