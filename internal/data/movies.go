@@ -1,6 +1,7 @@
 package data
 
 import (
+	"database/sql"
 	"time"
 
 	"greenlight.alexarmenta.net/internal/validator"
@@ -33,4 +34,24 @@ func ValidateMovie(v *validator.Validator, movie Movie) {
 	v.Check(len(movie.Genres) <= 5, "genres", "must not contain more than 5 genres")
 	v.Check(validator.Unique(movie.Genres), "genres", "must not contain duplicate values")
 
+}
+
+type MovieModel struct {
+	DB *sql.DB
+}
+
+func (m MovieModel) Insert(movie Movie) (Movie, error) {
+	return Movie{}, nil
+}
+
+func (m MovieModel) Get(id int) (Movie, error) {
+	return Movie{}, nil
+}
+
+func (m MovieModel) Update(movie Movie) (Movie, error) {
+	return Movie{}, nil
+}
+
+func (m MovieModel) Delete(id int) error {
+	return nil
 }
