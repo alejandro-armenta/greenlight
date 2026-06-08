@@ -137,7 +137,7 @@ func (m MovieModel) Update(movie Movie) (Movie, error) {
 		genres = $4,
 		version = version + 1
 
-	where id = $5
+	where id = $5 and version = $6
 
 	returning version
 
@@ -149,11 +149,21 @@ func (m MovieModel) Update(movie Movie) (Movie, error) {
 		movie.Runtime,
 		pq.Array(movie.Genres),
 		movie.ID,
+		movie.Version,
 	}
 
 	err := m.DB.QueryRow(query, args...).Scan(&movie.Version)
 
-	return movie, err
+	if err != nil {
+		switch {
+		case errors.Is(err, sql.ErrNoRows):
+			return Movie{}, ErrEditConflict
+		default:
+			return Movie{}, err
+		}
+	}
+
+	return movie, nil
 }
 
 func (m MovieModel) Delete(id int) error {
@@ -184,5 +194,5 @@ func (m MovieModel) Delete(id int) error {
 	}
 
 	return nil
-	
+
 }
