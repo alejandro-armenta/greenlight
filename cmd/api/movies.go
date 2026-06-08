@@ -129,6 +129,24 @@ func (app *application) updateMovieHandler(w http.ResponseWriter, r *http.Reques
 	movie.Runtime = input.Runtime
 	movie.Genres = input.Genres
 
-	
+	v := validator.New()
+
+	if data.ValidateMovie(v, movie); !v.Valid() {
+		app.failedValidationResponse(w, r, v.Errors)
+		return
+	}
+
+	movie, err = app.models.Movies.Update(movie)
+
+	if err != nil {
+		app.serverErrorResponse(w, r, err)
+		return
+	}
+
+	err = app.writeJSON(w, http.StatusOK, envelope{"movie": movie}, nil)
+
+	if err != nil {
+		app.serverErrorResponse(w, r, err)
+	}
 
 }
