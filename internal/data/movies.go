@@ -46,31 +46,27 @@ func (m MovieModel) Insert(movie Movie) (Movie, error) {
 
 	query := `
 	
-	insert into movies 
-	
-	(
-		title,
-		year,
-		runtime,
-		genres
-	)
+	insert into movies 	
+		(
+			title,
+			year,
+			runtime,
+			genres
+		)
 	
 	values 
-
-	(
-		$1,
-		$2,
-		$3,
-		$4
-	)
+		(
+			$1,
+			$2,
+			$3,
+			$4
+		)
 	
 	returning 
 	
-	id, 
-	
-	created_at, 
-	
-	version
+		id, 	
+		created_at, 
+		version
 	
 	`
 
@@ -129,9 +125,38 @@ func (m MovieModel) Get(id int) (Movie, error) {
 }
 
 func (m MovieModel) Update(movie Movie) (Movie, error) {
-	return Movie{}, nil
+
+	query := `
+	
+	update movies
+
+	set 
+		title = $1,
+		year = $2,
+		runtime = $3,
+		genres = $4,
+		version = version + 1
+
+	where id = $5
+
+	returning version
+
+	`
+
+	args := []any{
+		movie.Title,
+		movie.Year,
+		movie.Runtime,
+		pq.Array(movie.Genres),
+		movie.ID,
+	}
+
+	err := m.DB.QueryRow(query, args...).Scan(&movie.Version)
+
+	return movie, err
 }
 
 func (m MovieModel) Delete(id int) error {
+
 	return nil
 }
