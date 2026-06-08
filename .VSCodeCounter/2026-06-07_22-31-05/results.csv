@@ -1,0 +1,22 @@
+"filename", "language", "Makefile", "Go", "JSON with Comments", "Go Checksum File", "Go Module File", "MS SQL", "JSON", "comment", "blank", "total"
+"/home/alejandro-armenta/Projects/greenlight/Makefile", "Makefile", 0, 0, 0, 0, 0, 0, 0, 0, 1, 1
+"/home/alejandro-armenta/Projects/greenlight/cmd/api/errors.go", "Go", 0, 45, 0, 0, 0, 0, 0, 0, 15, 60
+"/home/alejandro-armenta/Projects/greenlight/cmd/api/healthcheck.go", "Go", 0, 17, 0, 0, 0, 0, 0, 0, 7, 24
+"/home/alejandro-armenta/Projects/greenlight/cmd/api/helpers.go", "Go", 0, 77, 0, 0, 0, 0, 0, 1, 35, 113
+"/home/alejandro-armenta/Projects/greenlight/cmd/api/main.go", "Go", 0, 81, 0, 0, 0, 0, 0, 1, 31, 113
+"/home/alejandro-armenta/Projects/greenlight/cmd/api/middleware.go", "Go", 0, 18, 0, 0, 0, 0, 0, 1, 5, 24
+"/home/alejandro-armenta/Projects/greenlight/cmd/api/movies.go", "Go", 0, 144, 0, 0, 0, 0, 0, 2, 52, 198
+"/home/alejandro-armenta/Projects/greenlight/cmd/api/routes.go", "Go", 0, 16, 0, 0, 0, 0, 0, 1, 12, 29
+"/home/alejandro-armenta/Projects/greenlight/go.mod", "Go Module File", 0, 0, 0, 0, 6, 0, 0, 0, 3, 9
+"/home/alejandro-armenta/Projects/greenlight/go.sum", "Go Checksum File", 0, 0, 0, 4, 0, 0, 0, 0, 1, 5
+"/home/alejandro-armenta/Projects/greenlight/greenlight.code-workspace", "JSON with Comments", 0, 0, 8, 0, 0, 0, 0, 0, 0, 8
+"/home/alejandro-armenta/Projects/greenlight/internal/data/models.go", "Go", 0, 19, 0, 0, 0, 0, 0, 0, 5, 24
+"/home/alejandro-armenta/Projects/greenlight/internal/data/movies.go", "Go", 0, 150, 0, 0, 0, 0, 0, 0, 49, 199
+"/home/alejandro-armenta/Projects/greenlight/internal/data/runtime.go", "Go", 0, 30, 0, 0, 0, 0, 0, 2, 17, 49
+"/home/alejandro-armenta/Projects/greenlight/internal/validator/validator.go", "Go", 0, 40, 0, 0, 0, 0, 0, 0, 14, 54
+"/home/alejandro-armenta/Projects/greenlight/largefile.json", "JSON", 0, 0, 0, 0, 0, 0, 1, 0, 0, 1
+"/home/alejandro-armenta/Projects/greenlight/migrations/000001_create_movies_table.down.sql", "MS SQL", 0, 0, 0, 0, 0, 1, 0, 0, 0, 1
+"/home/alejandro-armenta/Projects/greenlight/migrations/000001_create_movies_table.up.sql", "MS SQL", 0, 0, 0, 0, 0, 9, 0, 0, 2, 11
+"/home/alejandro-armenta/Projects/greenlight/migrations/000002_add_movies_check_constraints.down.sql", "MS SQL", 0, 0, 0, 0, 0, 3, 0, 0, 2, 5
+"/home/alejandro-armenta/Projects/greenlight/migrations/000002_add_movies_check_constraints.up.sql", "MS SQL", 0, 0, 0, 0, 0, 12, 0, 0, 2, 14
+"Total", "-", 0, 637, 8, 4, 6, 25, 1, 8, 253, 942
