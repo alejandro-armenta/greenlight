@@ -1,6 +1,11 @@
 package data
 
-import "greenlight.alexarmenta.net/internal/validator"
+import (
+	"slices"
+	"strings"
+
+	"greenlight.alexarmenta.net/internal/validator"
+)
 
 type Filters struct {
 	Page         int
@@ -19,4 +24,22 @@ func ValidateFilters(v *validator.Validator, f Filters) {
 
 	v.Check(validator.PermittedValue(f.Sort, f.SortSafeList...), "sort", "invalid sort value")
 
+}
+
+func (f Filters) sortColumn() string {
+	if slices.Contains(f.SortSafeList, f.Sort) {
+		newString := strings.TrimPrefix(f.Sort, "-")
+		return newString
+	}
+
+	panic("unsafe sort parameter: " + f.Sort)
+}
+
+func (f Filters) sortDirection() string {
+
+	if strings.HasPrefix(f.Sort, "-") {
+		return "DESC"
+	}
+
+	return "ASC"
 }
