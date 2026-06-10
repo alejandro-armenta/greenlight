@@ -1,0 +1,7 @@
+
+4 tokens 
+1/2 seconds a token is added
+
+2 segundos para que llenara otra vez
+
+pero si empieza en zero
