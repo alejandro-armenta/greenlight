@@ -1,6 +1,8 @@
 package main
 
 import (
+	"context"
+	"errors"
 	"fmt"
 	"log/slog"
 	"net/http"
@@ -21,6 +23,8 @@ func (app *application) serve() error {
 		ErrorLog:     slog.NewLogLogger(app.logger.Handler(), slog.LevelError),
 	}
 
+	shutdownError := make(chan error)
+
 	go func() {
 		quit := make(chan os.Signal, 1)
 
@@ -29,12 +33,27 @@ func (app *application) serve() error {
 		//aqui se bloquea porq no hay señal
 		s := <-quit
 
-		app.logger.Info("caught signal", "signal", s.String())
+		//aqui tienes que apagar el servidor
+		app.logger.Info("stopping server", "addr", srv.Addr, "signal", s.String())
 
-		os.Exit(0)
+		shutdownError <- srv.Shutdown(context.Background())
 	}()
 
 	app.logger.Info("starting server", "addr", srv.Addr, "env", app.config.env)
 
-	return srv.ListenAndServe()
+	err := srv.ListenAndServe()
+
+	if !errors.Is(err, http.ErrServerClosed) {
+		return err
+	}
+
+	err = <-shutdownError
+
+	if err != nil {
+		return err
+	}
+
+	app.logger.Info("shutdown complete")
+
+	return nil
 }
