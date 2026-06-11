@@ -6,6 +6,7 @@ import (
 	"errors"
 	"time"
 
+	"github.com/lib/pq"
 	"golang.org/x/crypto/bcrypt"
 	"greenlight.alexarmenta.net/internal/validator"
 )
@@ -106,8 +107,54 @@ func (m UserModel) Insert(user User) (User, error) {
 	err := m.DB.QueryRowContext(ctx, query, args...).Scan(&user.ID, &user.CreatedAt, &user.Version)
 
 	if err != nil {
-		return User{}, err
+		var pqError *pq.Error
+		switch {
+		//error duplicate email
+		case errors.As(err, &pqError) && pqError.Code == "23505" && pqError.Constraint == "users_email_key":
+			return User{}, ErrDuplicateEmail
+		default:
+			return User{}, err
+		}
 	}
 
 	return user, nil
+}
+
+func (m UserModel) GetByEmail(email string) (User, error) {
+
+	query := `
+	select id, created_at, name, email, password_hash, activated, version 
+	from users 
+	where email = $1
+	`
+
+	var user User
+
+	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
+	defer cancel()
+
+	err := m.DB.QueryRowContext(ctx, query, email).Scan(
+		&user.ID,
+		&user.CreatedAt,
+		&user.Name,
+		&user.Email,
+		&user.Password.hash,
+		&user.Activated,
+		&user.Version,
+	)
+
+	if err != nil {
+		switch {
+		case errors.Is(err, sql.ErrNoRows):
+			return User{}, ErrRecordNotFound
+		default:
+			return User{}, err
+		}
+	}
+
+	return user, nil
+}
+
+func (m UserModel) Update(user User) (User, error) {
+	return User{}, nil
 }
