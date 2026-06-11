@@ -1,12 +1,20 @@
 package data
 
 import (
+	"context"
+	"database/sql"
 	"errors"
 	"time"
 
 	"golang.org/x/crypto/bcrypt"
 	"greenlight.alexarmenta.net/internal/validator"
 )
+
+var ErrDuplicateEmail = errors.New("duplicate email")
+
+type UserModel struct {
+	DB *sql.DB
+}
 
 type User struct {
 	ID        int       `json:"id"`
@@ -80,4 +88,26 @@ func ValidateUser(v *validator.Validator, user User) {
 		panic("missing password hash for user")
 	}
 
+}
+
+func (m UserModel) Insert(user User) (User, error) {
+
+	query := `
+	insert into users (name, email, password_hash, activated)
+	values 			  ($1, $2, $3, $4)
+	returning id, created_at, version
+	`
+
+	args := []any{user.Name, user.Email, user.Password.hash, user.Activated}
+
+	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
+	defer cancel()
+
+	err := m.DB.QueryRowContext(ctx, query, args...).Scan(&user.ID, &user.CreatedAt, &user.Version)
+
+	if err != nil {
+		return User{}, err
+	}
+
+	return user, nil
 }
