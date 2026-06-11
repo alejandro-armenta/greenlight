@@ -1,0 +1,51 @@
+Date : 2026-06-10 20:26:36
+Directory : /home/alejandro-armenta/Projects/greenlight
+Total : 17 files,  357 codes, 7 comments, 157 blanks, all 521 lines
+
+Languages
++------------------+------------+------------+------------+------------+------------+
+| language         | files      | code       | comment    | blank      | total      |
++------------------+------------+------------+------------+------------+------------+
+| Go               |         10 |        328 |          7 |        133 |        468 |
+| MS SQL           |          4 |         14 |          0 |         15 |         29 |
+| Go Checksum File |          1 |          6 |          0 |          0 |          6 |
+| Markdown         |          1 |          6 |          0 |          6 |         12 |
+| Go Module File   |          1 |          3 |          0 |          3 |          6 |
++------------------+------------+------------+------------+------------+------------+
+
+Directories
++-------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                      | files      | code       | comment    | blank      | total      |
++-------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                         |         17 |        357 |          7 |        157 |        521 |
+| . (Files)                                                                                 |          3 |         15 |          0 |          9 |         24 |
+| cmd                                                                                       |          7 |        158 |          5 |         65 |        228 |
+| cmd/api                                                                                   |          7 |        158 |          5 |         65 |        228 |
+| internal                                                                                  |          3 |        170 |          2 |         68 |        240 |
+| internal/data                                                                             |          3 |        170 |          2 |         68 |        240 |
+| migrations                                                                                |          4 |         14 |          0 |         15 |         29 |
++-------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++-------------------------------------------------------------------------------------------+------------------+------------+------------+------------+------------+
+| filename                                                                                  | language         | code       | comment    | blank      | total      |
++-------------------------------------------------------------------------------------------+------------------+------------+------------+------------+------------+
+| /home/alejandro-armenta/Projects/greenlight/README.md                                     | Markdown         |          6 |          0 |          6 |         12 |
+| /home/alejandro-armenta/Projects/greenlight/cmd/api/errors.go                             | Go               |          4 |          0 |          1 |          5 |
+| /home/alejandro-armenta/Projects/greenlight/cmd/api/helpers.go                            | Go               |         29 |          3 |         18 |         50 |
+| /home/alejandro-armenta/Projects/greenlight/cmd/api/main.go                               | Go               |         -1 |          0 |         -1 |         -2 |
+| /home/alejandro-armenta/Projects/greenlight/cmd/api/middleware.go                         | Go               |         47 |          0 |         17 |         64 |
+| /home/alejandro-armenta/Projects/greenlight/cmd/api/movies.go                             | Go               |         37 |          0 |         13 |         50 |
+| /home/alejandro-armenta/Projects/greenlight/cmd/api/routes.go                             | Go               |          1 |          0 |          0 |          1 |
+| /home/alejandro-armenta/Projects/greenlight/cmd/api/server.go                             | Go               |         41 |          2 |         17 |         60 |
+| /home/alejandro-armenta/Projects/greenlight/go.mod                                        | Go Module File   |          3 |          0 |          3 |          6 |
+| /home/alejandro-armenta/Projects/greenlight/go.sum                                        | Go Checksum File |          6 |          0 |          0 |          6 |
+| /home/alejandro-armenta/Projects/greenlight/internal/data/filters.go                      | Go               |         57 |          0 |         19 |         76 |
+| /home/alejandro-armenta/Projects/greenlight/internal/data/movies.go                       | Go               |         52 |          1 |         27 |         80 |
+| /home/alejandro-armenta/Projects/greenlight/internal/data/users.go                        | Go               |         61 |          1 |         22 |         84 |
+| /home/alejandro-armenta/Projects/greenlight/migrations/000003_add_movies_indexes.down.sql | MS SQL           |          2 |          0 |          1 |          3 |
+| /home/alejandro-armenta/Projects/greenlight/migrations/000003_add_movies_indexes.up.sql   | MS SQL           |          2 |          0 |          2 |          4 |
+| /home/alejandro-armenta/Projects/greenlight/migrations/000004_create_users_table.down.sql | MS SQL           |          1 |          0 |          1 |          2 |
+| /home/alejandro-armenta/Projects/greenlight/migrations/000004_create_users_table.up.sql   | MS SQL           |          9 |          0 |         11 |         20 |
+| Total                                                                                     |                  |        357 |          7 |        157 |        521 |
++-------------------------------------------------------------------------------------------+------------------+------------+------------+------------+------------+
