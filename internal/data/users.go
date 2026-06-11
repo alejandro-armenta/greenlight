@@ -192,9 +192,23 @@ func (m UserModel) Update(user User) (User, error) {
 	err := m.DB.QueryRowContext(ctx, query, args...).Scan(&user.Version)
 
 	if err != nil {
-		
-		return User{}, err
+
+		var pqError *pq.Error
+
+		switch {
+		//error duplicate email
+		case errors.As(err, &pqError) && pqError.Code == "23505" && pqError.Constraint == "users_email_key":
+			return User{}, ErrDuplicateEmail
+
+		case errors.Is(err, sql.ErrNoRows):
+			return User{}, ErrEditConflict
+
+		default:
+			return User{}, err
+
+		}
 	}
 
 	return user, nil
+
 }
