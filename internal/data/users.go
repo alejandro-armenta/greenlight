@@ -156,5 +156,45 @@ func (m UserModel) GetByEmail(email string) (User, error) {
 }
 
 func (m UserModel) Update(user User) (User, error) {
-	return User{}, nil
+
+	query := `
+
+	update users
+
+	set 
+		name 			= $1,
+		email 			= $2,
+		password_hash 	= $3,
+		activated 		= $4,
+
+		version 		= version + 1
+
+	where id = $5 and version = $6
+
+	returning version
+
+	`
+
+	args := []any{
+		user.Name,
+		user.Email,
+		user.Password.hash,
+		user.Activated,
+
+		user.ID,
+
+		user.Version,
+	}
+
+	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
+	defer cancel()
+
+	err := m.DB.QueryRowContext(ctx, query, args...).Scan(&user.Version)
+
+	if err != nil {
+		
+		return User{}, err
+	}
+
+	return user, nil
 }
