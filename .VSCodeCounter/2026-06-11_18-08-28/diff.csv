@@ -1,0 +1,10 @@
+"filename", "language", "Go Checksum File", "Go Module File", "Go", "Go Template File", "comment", "blank", "total"
+"/home/alejandro-armenta/Projects/greenlight/cmd/api/routes.go", "Go", 0, 0, 1, 0, 0, 0, 1
+"/home/alejandro-armenta/Projects/greenlight/cmd/api/users.go", "Go", 0, 0, 49, 0, 0, 17, 66
+"/home/alejandro-armenta/Projects/greenlight/go.mod", "Go Module File", 0, 4, 0, 0, 0, 1, 5
+"/home/alejandro-armenta/Projects/greenlight/go.sum", "Go Checksum File", 4, 0, 0, 0, 0, 0, 4
+"/home/alejandro-armenta/Projects/greenlight/internal/data/models.go", "Go", 0, 0, 4, 0, 0, 0, 4
+"/home/alejandro-armenta/Projects/greenlight/internal/data/users.go", "Go", 0, 0, 92, 0, 2, 37, 131
+"/home/alejandro-armenta/Projects/greenlight/internal/mailer/mailer.go", "Go", 0, 0, 31, 0, 1, 15, 47
+"/home/alejandro-armenta/Projects/greenlight/internal/mailer/templates/user_welcome.tmpl", "Go Template File", 0, 0, 0, 24, 0, 10, 34
+"Total", "-", 4, 4, 177, 24, 3, 80, 292

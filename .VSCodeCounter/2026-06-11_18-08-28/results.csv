@@ -1,0 +1,33 @@
+"filename", "language", "Go Checksum File", "Markdown", "JSON with Comments", "Go Module File", "Makefile", "Go", "MS SQL", "JSON", "Go Template File", "comment", "blank", "total"
+"/home/alejandro-armenta/Projects/greenlight/Makefile", "Makefile", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1
+"/home/alejandro-armenta/Projects/greenlight/README.md", "Markdown", 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 6, 12
+"/home/alejandro-armenta/Projects/greenlight/cmd/api/errors.go", "Go", 0, 0, 0, 0, 0, 49, 0, 0, 0, 0, 16, 65
+"/home/alejandro-armenta/Projects/greenlight/cmd/api/healthcheck.go", "Go", 0, 0, 0, 0, 0, 17, 0, 0, 0, 0, 7, 24
+"/home/alejandro-armenta/Projects/greenlight/cmd/api/helpers.go", "Go", 0, 0, 0, 0, 0, 106, 0, 0, 0, 4, 53, 163
+"/home/alejandro-armenta/Projects/greenlight/cmd/api/main.go", "Go", 0, 0, 0, 0, 0, 80, 0, 0, 0, 1, 30, 111
+"/home/alejandro-armenta/Projects/greenlight/cmd/api/middleware.go", "Go", 0, 0, 0, 0, 0, 65, 0, 0, 0, 1, 22, 88
+"/home/alejandro-armenta/Projects/greenlight/cmd/api/movies.go", "Go", 0, 0, 0, 0, 0, 181, 0, 0, 0, 2, 65, 248
+"/home/alejandro-armenta/Projects/greenlight/cmd/api/routes.go", "Go", 0, 0, 0, 0, 0, 18, 0, 0, 0, 1, 12, 31
+"/home/alejandro-armenta/Projects/greenlight/cmd/api/server.go", "Go", 0, 0, 0, 0, 0, 41, 0, 0, 0, 2, 17, 60
+"/home/alejandro-armenta/Projects/greenlight/cmd/api/users.go", "Go", 0, 0, 0, 0, 0, 49, 0, 0, 0, 0, 17, 66
+"/home/alejandro-armenta/Projects/greenlight/go.mod", "Go Module File", 0, 0, 0, 13, 0, 0, 0, 0, 0, 0, 7, 20
+"/home/alejandro-armenta/Projects/greenlight/go.sum", "Go Checksum File", 14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 15
+"/home/alejandro-armenta/Projects/greenlight/greenlight.code-workspace", "JSON with Comments", 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 8
+"/home/alejandro-armenta/Projects/greenlight/internal/data/filters.go", "Go", 0, 0, 0, 0, 0, 57, 0, 0, 0, 0, 19, 76
+"/home/alejandro-armenta/Projects/greenlight/internal/data/models.go", "Go", 0, 0, 0, 0, 0, 23, 0, 0, 0, 0, 5, 28
+"/home/alejandro-armenta/Projects/greenlight/internal/data/movies.go", "Go", 0, 0, 0, 0, 0, 202, 0, 0, 0, 1, 76, 279
+"/home/alejandro-armenta/Projects/greenlight/internal/data/runtime.go", "Go", 0, 0, 0, 0, 0, 30, 0, 0, 0, 2, 17, 49
+"/home/alejandro-armenta/Projects/greenlight/internal/data/users.go", "Go", 0, 0, 0, 0, 0, 153, 0, 0, 0, 3, 59, 215
+"/home/alejandro-armenta/Projects/greenlight/internal/mailer/mailer.go", "Go", 0, 0, 0, 0, 0, 31, 0, 0, 0, 1, 15, 47
+"/home/alejandro-armenta/Projects/greenlight/internal/mailer/templates/user_welcome.tmpl", "Go Template File", 0, 0, 0, 0, 0, 0, 0, 0, 24, 0, 10, 34
+"/home/alejandro-armenta/Projects/greenlight/internal/validator/validator.go", "Go", 0, 0, 0, 0, 0, 40, 0, 0, 0, 0, 14, 54
+"/home/alejandro-armenta/Projects/greenlight/largefile.json", "JSON", 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1
+"/home/alejandro-armenta/Projects/greenlight/migrations/000001_create_movies_table.down.sql", "MS SQL", 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1
+"/home/alejandro-armenta/Projects/greenlight/migrations/000001_create_movies_table.up.sql", "MS SQL", 0, 0, 0, 0, 0, 0, 9, 0, 0, 0, 2, 11
+"/home/alejandro-armenta/Projects/greenlight/migrations/000002_add_movies_check_constraints.down.sql", "MS SQL", 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 2, 5
+"/home/alejandro-armenta/Projects/greenlight/migrations/000002_add_movies_check_constraints.up.sql", "MS SQL", 0, 0, 0, 0, 0, 0, 12, 0, 0, 0, 2, 14
+"/home/alejandro-armenta/Projects/greenlight/migrations/000003_add_movies_indexes.down.sql", "MS SQL", 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 1, 3
+"/home/alejandro-armenta/Projects/greenlight/migrations/000003_add_movies_indexes.up.sql", "MS SQL", 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 2, 4
+"/home/alejandro-armenta/Projects/greenlight/migrations/000004_create_users_table.down.sql", "MS SQL", 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 2
+"/home/alejandro-armenta/Projects/greenlight/migrations/000004_create_users_table.up.sql", "MS SQL", 0, 0, 0, 0, 0, 0, 9, 0, 0, 0, 11, 20
+"Total", "-", 14, 6, 8, 13, 0, 1142, 39, 1, 24, 18, 490, 1755
