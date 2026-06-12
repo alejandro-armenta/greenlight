@@ -53,6 +53,10 @@ func (app *application) serve() error {
 		return err
 	}
 
+	app.logger.Info("waiting for background tasks")
+
+	app.wg.Wait()
+
 	app.logger.Info("shutdown complete")
 
 	return nil
