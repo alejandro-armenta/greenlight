@@ -16,6 +16,23 @@ import (
 
 type envelope map[string]any
 
+func (app *application) background(fn func()) {
+
+	go func() {
+
+		defer func() {
+			pv := recover()
+
+			if pv != nil {
+				app.logger.Error(fmt.Sprintf("%v", pv))
+			}
+		}()
+
+		fn()
+	}()
+
+}
+
 func (app *application) readJSON(w http.ResponseWriter, r *http.Request, dst any) error {
 
 	r.Body = http.MaxBytesReader(w, r.Body, 1_048_576)
@@ -158,5 +175,3 @@ func (app *application) readInt(qs url.Values, key string, defaultValue int, v *
 
 	return i
 }
-
-
