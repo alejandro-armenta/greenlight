@@ -51,7 +51,12 @@ type TokenModel struct {
 
 func (m TokenModel) New(userID int, ttl time.Duration, scope string) (Token, error) {
 
-	return Token{}, nil
+	token := generateToken(userID, ttl, scope)
+
+	err := m.insert(token)
+
+	return token, err
+
 }
 
 func (m TokenModel) insert(token Token) error {
@@ -74,5 +79,17 @@ func (m TokenModel) insert(token Token) error {
 }
 
 func (m TokenModel) DeleteAllForUser(scope string, userID int) error {
-	return nil
+
+	query := `
+	delete from tokens 
+	where scope = $1 and user_id = $2 
+	`
+
+	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
+	defer cancel()
+
+	_, err := m.DB.ExecContext(ctx, query, scope, userID)
+
+	return err
+
 }
