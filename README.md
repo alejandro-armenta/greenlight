@@ -1,7 +1,4 @@
-# Greenlight REST API
-
-<img width="1600" height="896" alt="greenlight logo for database" src="https://github.com/user-attachments/assets/b36d393d-f543-4b90-8379-8a341254637d" />
-
+# Greenlight Website
 
 This is a Website I made in GO, it has the next features:
 
@@ -14,6 +11,8 @@ This is a Website I made in GO, it has the next features:
 -   Full text search on movie titles.
 -   Filtering, sorting and pagination of results.
 -   Database Migrations for PostgreSQL
+
+<img width="1600" height="896" alt="greenlight logo for database" src="https://github.com/user-attachments/assets/b36d393d-f543-4b90-8379-8a341254637d" />
 
 This is an Email sent to user:
 
