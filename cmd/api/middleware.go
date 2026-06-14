@@ -3,12 +3,39 @@ package main
 import (
 	"fmt"
 	"net/http"
+	"strings"
 	"sync"
 	"time"
 
 	"github.com/tomasen/realip"
 	"golang.org/x/time/rate"
 )
+
+func (app *application) authenticate(next http.Handler) http.Handler {
+	return http.HandlerFunc(
+		func(w http.ResponseWriter, r *http.Request) {
+
+			w.Header().Add("Vary", "Authorization")
+
+			authorizationHeader := r.Header.Get("Authorization")
+
+			if authorizationHeader == "" {
+				next.ServeHTTP(w, r)
+				return
+			}
+
+			headerParts := strings.Split(authorizationHeader, " ")
+
+			if len(headerParts) != 2 || headerParts[0] != "Bearer" {
+				app.invalidAuthenticationTokenResponse()
+				return
+			}
+
+			ale := headerParts[1]
+
+			next.ServeHTTP(w, r)
+		})
+}
 
 func (app *application) rateLimit(next http.Handler) http.Handler {
 
