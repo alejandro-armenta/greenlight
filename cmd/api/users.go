@@ -108,6 +108,7 @@ func (app *application) activateUserHandler(w http.ResponseWriter, r *http.Reque
 	}
 
 	//aqui quieres jalar el user
+	//este es por token no por email
 	user, err := app.models.Users.GetForToken(data.ScopeActivation, input.TokenPlaintext)
 
 	if err != nil {

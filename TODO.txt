@@ -6,3 +6,27 @@ appendices
 21.1 
 21.2 
 21.3
+
+--Basic authentication is very slow.
+
+Token authentication
+
+    Gets a new token authentication 
+
+    Time period
+
+    re authenticates.
+
+    tambien va en el header.
+
+    Stateful
+
+        palomita
+
+    Stateless
+
+        se usa en microservicios!
+
+
+
+los headers son para autenticacion siempre se verifica
