@@ -21,7 +21,7 @@ func (m PermissionModel) GetAllForUser(userID int) (Permissions, error) {
 
 	query := `
 
-	select * 
+	select p.code 
 	
 	from permissions as p
 	
