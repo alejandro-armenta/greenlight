@@ -13,9 +13,18 @@ This is a Website I made in GO, it has the next features:
 
 <img width="1600" height="896" alt="greenlight logo for database" src="https://github.com/user-attachments/assets/b36d393d-f543-4b90-8379-8a341254637d" />
 
-This is a Preflight CORS for user authentication from different origin:
+## CORS
+
+This is a request made with Preflight CORS by another server into my API.
+From a different origin, 
+
+The web browser first sends a preflight CORS request and I sent valid request methods and valid request headers for real request.
+
+Then the real request is made for user authentication.
 
 ![ale](cors.png)
+
+## EMAIL
 
 This is an Email sent to user:
 
