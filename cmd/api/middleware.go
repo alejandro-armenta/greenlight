@@ -14,6 +14,29 @@ import (
 	"greenlight.alexarmenta.net/internal/validator"
 )
 
+func (app *application) enableCORS(next http.Handler) http.Handler {
+	return http.HandlerFunc(
+		func(w http.ResponseWriter, r *http.Request) {
+
+			//runtime.Breakpoint()
+
+			w.Header().Add("Vary", "Origin")
+
+			origin := r.Header.Get("Origin")
+
+			if origin != "" {
+				for _, value := range app.config.cors.trustedOrigins {
+					if origin == value {
+						w.Header().Set("Access-Control-Allow-Origin", origin)
+						break
+					}
+				}
+			}
+
+			next.ServeHTTP(w, r)
+		})
+}
+
 func (app *application) requirePermission(code string, next http.HandlerFunc) http.HandlerFunc {
 
 	return http.HandlerFunc(
