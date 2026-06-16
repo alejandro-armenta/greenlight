@@ -38,3 +38,6 @@ los headers son para autenticacion siempre se verifica
 primero se tiene que hacer el 401 authentication
 
 403 activation
+
+
+Access-Control-Request-Method
