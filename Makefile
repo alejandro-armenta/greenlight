@@ -1,6 +1,4 @@
 include .envrc
-# this will work without parameters
-# antes pensaba que era el nombre del archivo
 
 ## help: print this help message
 .PHONY: help
@@ -21,7 +19,7 @@ run/api:
 
 
 ## db/sql: connect to the database using psql
-.PHONY: db/sql
+.PHONY: db/psql
 db/psql:
 	@psql ${GREENLIGHT_DB_DSN}
 
