@@ -1,5 +1,9 @@
 include .envrc
 
+# ==================================================================================== #
+# HELPERS
+# ==================================================================================== #
+
 ## help: print this help message
 .PHONY: help
 help:
@@ -11,6 +15,10 @@ help:
 confirm:
 	@echo -n 'Are you sure? [y/N] ' && read ans && [ $${ans:-N} = y ] 
 
+
+# ==================================================================================== #
+# DEVELOPMENT
+# ==================================================================================== #
 
 ## run/api: run the cmd/api application
 .PHONY: run/api
@@ -34,3 +42,27 @@ db/migrations/new:
 .PHONY: db/migrations/up
 db/migrations/up: confirm
 	@migrate -path ./migrations -database ${GREENLIGHT_DB_DSN} up
+
+
+# ==================================================================================== #
+# QUALITY CONTROL
+# ==================================================================================== #
+
+.PHONY: tidy
+tidy:
+	go mod tidy
+	go mod verify
+	go mod vendor
+	go fix ./...
+	go fmt ./...
+
+
+
+.PHONY: audit
+audit:
+	go mod tidy -diff
+	go mod verify
+	go vet ./...
+	go tool staticcheck ./...
+	go test -race -vet=off ./...
+
