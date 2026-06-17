@@ -18,8 +18,6 @@ func (app *application) enableCORS(next http.Handler) http.Handler {
 	return http.HandlerFunc(
 		func(w http.ResponseWriter, r *http.Request) {
 
-			
-
 			w.Header().Add("Vary", "Origin")
 
 			w.Header().Add("Vary", "Access-Control-Request-Method")
@@ -85,6 +83,7 @@ func (app *application) requirePermission(code string, next http.HandlerFunc) ht
 		})
 }
 
+//lint:ignore U1000 middleware currently unused, but might be in the future
 func (app *application) requireActivatedUser(next http.HandlerFunc) http.HandlerFunc {
 
 	return http.HandlerFunc(
