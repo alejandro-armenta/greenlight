@@ -1,4 +1,4 @@
-
+include .envrc
 # this will work without parameters
 # antes pensaba que era el nombre del archivo
 
@@ -17,7 +17,7 @@ confirm:
 ## run/api: run the cmd/api application
 .PHONY: run/api
 run/api:
-	@go run ./cmd/api
+	@go run ./cmd/api -db-dsn=${GREENLIGHT_DB_DSN}
 
 
 ## db/sql: connect to the database using psql
